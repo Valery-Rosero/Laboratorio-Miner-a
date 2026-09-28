@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { EJERCICIOS } from "./ejercicios";
+import DiagramPanel from "./DiagramPanel";
+import EntrenamientoEnVivo from "./EntrenamientoEnVivo";
 
 export default function Home() {
   const [ejercicioKey, setEjercicioKey] = useState("Dolar");
@@ -91,6 +93,9 @@ export default function Home() {
           <div className="label">R² Val. Cruzada</div>
         </div>
       </div>
+
+      <DiagramPanel ejercicio={ejercicio} />
+      <EntrenamientoEnVivo ejercicioKey={ejercicioKey} />
 
       <form className="lab-card" onSubmit={predecir}>
         <h4 style={{ marginBottom: "0.8rem" }}>Ingresa los valores</h4>

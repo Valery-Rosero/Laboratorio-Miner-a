@@ -252,6 +252,88 @@ main {
   color: var(--teal);
 }
 
+/* ---------- Diagramas ---------- */
+.diagram-caption {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 0.4rem 0 1.1rem 0;
+  font-style: italic;
+}
+
+/* ---------- Entrenamiento en vivo ---------- */
+.btn-mini {
+  background: var(--cream);
+  color: var(--navy);
+  border: 1px solid rgba(201, 168, 118, 0.5);
+  border-radius: 8px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-mini:hover {
+  border-color: var(--gold);
+}
+
+.legend-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 0.4rem 0 0.6rem 0;
+  font-size: 0.78rem;
+  color: var(--navy);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.legend-line {
+  width: 16px;
+  height: 3px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.chart-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.grid-line {
+  stroke: rgba(27, 58, 76, 0.12);
+  stroke-width: 1;
+}
+.axis-label {
+  font-size: 10px;
+  fill: var(--muted);
+  font-family: "Inter", sans-serif;
+}
+.axis-title {
+  font-size: 11px;
+  fill: var(--teal);
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.5px;
+}
+.tooltip-text {
+  font-size: 10px;
+  fill: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+.crosshair {
+  stroke: rgba(27, 58, 76, 0.35);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
 .lab-footer {
   text-align: center;
   color: var(--muted);
