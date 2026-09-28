@@ -20,9 +20,6 @@ python src/ejercicio3_energia.py
 
 # 3. Levantar la interfaz web de predicción
 streamlit run app.py
-
-# 4. (Opcional) Regenerar el informe académico en PDF (portada APA, Times New Roman)
-python src/generar_informe_pdf.py
 ```
 
 ## Resultados obtenidos (R² en conjunto de prueba)
@@ -38,7 +35,7 @@ Detalle completo de interpretación de coeficientes, métricas y conclusiones en
 ## Estructura
 
 - `data/` — datasets CSV
-- `src/` — scripts de generación de datos, de cada ejercicio y del informe PDF
+- `src/` — scripts de generación de datos y de cada ejercicio
 - `models/` — modelos exportados (`.pkl`, cargados con `joblib`, incluyen métricas)
 - `graficas/` — visualizaciones generadas
 - `.streamlit/config.toml` — tema visual (paleta navy / crema / dorado)

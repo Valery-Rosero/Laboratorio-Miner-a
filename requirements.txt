@@ -6,4 +6,3 @@ seaborn
 streamlit
 streamlit-option-menu
 joblib
-reportlab

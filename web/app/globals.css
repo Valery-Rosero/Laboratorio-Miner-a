@@ -50,7 +50,41 @@ main {
   letter-spacing: 3px;
   text-transform: uppercase;
   font-style: italic;
-  margin: 0;
+  margin: 0 0 1rem 0;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--card);
+  border: 1px solid rgba(27, 58, 76, 0.2);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+}
+.action-link:hover {
+  border-color: var(--navy);
+  box-shadow: 0 2px 8px rgba(27, 58, 76, 0.12);
+}
+.action-link-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: var(--navy-dark);
+  border-color: transparent;
+}
+.action-link-gold:hover {
+  box-shadow: 0 4px 12px rgba(173, 138, 87, 0.4);
 }
 
 /* ---------- Grid de contenido (responsive) ---------- */

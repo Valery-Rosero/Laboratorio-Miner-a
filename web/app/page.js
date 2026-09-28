@@ -55,6 +55,22 @@ export default function Home() {
       <header className="lab-header">
         <h1 className="lab-title">Laboratorio de Minería de Datos</h1>
         <p className="lab-subtitle">Regresión Lineal Múltiple · CRISP-DM</p>
+        <div className="header-actions">
+          <a
+            href="https://github.com/Valery-Rosero/Laboratorio-Miner-a"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="action-link"
+          >
+            <span aria-hidden="true">🔗</span> Ver repositorio
+          </a>
+          <a href="/INFORME.pdf" target="_blank" rel="noopener noreferrer" className="action-link">
+            <span aria-hidden="true">📄</span> Ver informe (PDF)
+          </a>
+          <a href="/INFORME.pdf" download="INFORME.pdf" className="action-link action-link-gold">
+            <span aria-hidden="true">⬇</span> Descargar PDF
+          </a>
+        </div>
       </header>
 
       <nav className="nav-menu">
