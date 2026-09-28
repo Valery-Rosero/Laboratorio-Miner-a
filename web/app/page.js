@@ -70,30 +70,35 @@ export default function Home() {
         ))}
       </nav>
 
-      <div className="content-grid">
-        <div className="panel-left">
-          <div className="lab-card">
-            <h4>{ejercicio.nombre}</h4>
-            <p>{ejercicio.descripcion}</p>
-          </div>
+      <div className="lab-card">
+        <h4>{ejercicio.nombre}</h4>
+        <p>{ejercicio.descripcion}</p>
+      </div>
 
-          <div className="stat-row">
-            <div className="stat-tile">
-              <div className="value">{(ejercicio.metrics.r2Test * 100).toFixed(1)}%</div>
-              <div className="label">R² Prueba</div>
-            </div>
-            <div className="stat-tile">
-              <div className="value">{ejercicio.metrics.rmseTest.toFixed(2)}</div>
-              <div className="label">RMSE Prueba</div>
-            </div>
-            <div className="stat-tile">
-              <div className="value">{(ejercicio.metrics.r2CV * 100).toFixed(1)}%</div>
-              <div className="label">R² Val. Cruzada</div>
-            </div>
-          </div>
+      <div className="stat-row">
+        <div className="stat-tile">
+          <div className="value">{(ejercicio.metrics.r2Test * 100).toFixed(1)}%</div>
+          <div className="label">R² Prueba</div>
+        </div>
+        <div className="stat-tile">
+          <div className="value">{ejercicio.metrics.rmseTest.toFixed(2)}</div>
+          <div className="label">RMSE Prueba</div>
+        </div>
+        <div className="stat-tile">
+          <div className="value">{(ejercicio.metrics.r2CV * 100).toFixed(1)}%</div>
+          <div className="label">R² Val. Cruzada</div>
+        </div>
+      </div>
 
-          <form className="lab-card" onSubmit={predecir}>
-            <h4 style={{ marginBottom: "0.8rem" }}>Ingresa los valores</h4>
+      <section className="section-analisis">
+        <DiagramPanel ejercicio={ejercicio} />
+        <EntrenamientoEnVivo ejercicioKey={ejercicioKey} />
+      </section>
+
+      <section className="section-prediccion">
+        <form className="lab-card" onSubmit={predecir}>
+          <h4 style={{ marginBottom: "0.8rem" }}>Ingresa los valores</h4>
+          <div className="form-grid">
             {ejercicio.inputs.map((f) => (
               <div className="form-field" key={f.key}>
                 <label htmlFor={f.key}>{f.label}</label>
@@ -109,47 +114,40 @@ export default function Home() {
                 />
               </div>
             ))}
-            <button className="btn-predict" type="submit" disabled={cargando}>
-              {cargando ? "Calculando..." : "Predecir →"}
-            </button>
-          </form>
+          </div>
+          <button className="btn-predict" type="submit" disabled={cargando}>
+            {cargando ? "Calculando..." : "Predecir →"}
+          </button>
+        </form>
 
-          {error && <p className="error-text">{error}</p>}
+        {error && <p className="error-text">{error}</p>}
 
-          {resultado && (
-            <div className="result-card">
-              <div className="label">Predicción de {resultado.target}</div>
-              <div className="value">
-                {resultado.prediccion.toLocaleString("es-CO", { maximumFractionDigits: 2 })}{" "}
-                {resultado.unidad}
-              </div>
+        {resultado && (
+          <div className="result-card">
+            <div className="label">Predicción de {resultado.target}</div>
+            <div className="value">
+              {resultado.prediccion.toLocaleString("es-CO", { maximumFractionDigits: 2 })}{" "}
+              {resultado.unidad}
             </div>
-          )}
+          </div>
+        )}
 
-          {resultado && (
-            <details className="coef-box lab-card">
-              <summary>Ver coeficientes del modelo</summary>
-              <ul>
-                {Object.entries(resultado.coeficientes).map(([k, v]) => (
-                  <li key={k}>
-                    {k}: {v.toFixed(4)}
-                  </li>
-                ))}
-                <li>Intercepto: {resultado.intercepto.toFixed(4)}</li>
-              </ul>
-            </details>
-          )}
-        </div>
+        {resultado && (
+          <details className="coef-box lab-card">
+            <summary>Ver coeficientes del modelo</summary>
+            <ul>
+              {Object.entries(resultado.coeficientes).map(([k, v]) => (
+                <li key={k}>
+                  {k}: {v.toFixed(4)}
+                </li>
+              ))}
+              <li>Intercepto: {resultado.intercepto.toFixed(4)}</li>
+            </ul>
+          </details>
+        )}
+      </section>
 
-        <div className="panel-right">
-          <DiagramPanel ejercicio={ejercicio} />
-          <EntrenamientoEnVivo ejercicioKey={ejercicioKey} />
-        </div>
-      </div>
-
-      <div className="lab-footer">
-        © 2026 Valery Nickol Rosero Molina — Laboratorio de Minería de Datos
-      </div>
+      <div className="lab-footer">Valery Rosero</div>
     </main>
   );
 }

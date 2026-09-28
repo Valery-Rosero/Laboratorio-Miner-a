@@ -23,7 +23,7 @@ body {
 }
 
 main {
-  max-width: 1440px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 1.8rem 2.5rem 3rem 2.5rem;
   width: 100%;
@@ -31,6 +31,7 @@ main {
 
 /* ---------- Encabezado ---------- */
 .lab-header {
+  text-align: center;
   border-bottom: 2px solid var(--gold);
   padding-bottom: 1.1rem;
   margin-bottom: 1.4rem;
@@ -52,28 +53,15 @@ main {
   margin: 0;
 }
 
-/* ---------- Grid de contenido (responsive) ---------- */
-.content-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 22px;
-  align-items: start;
+/* ---------- Secciones (orden vertical: análisis arriba, predicción abajo) ---------- */
+.section-analisis,
+.section-prediccion {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 1.8rem;
 }
-@media (min-width: 900px) {
-  .content-grid {
-    grid-template-columns: minmax(320px, 440px) 1fr;
-    gap: 28px;
-  }
-  .panel-left {
-    position: sticky;
-    top: 1.5rem;
-  }
-}
-@media (min-width: 1400px) {
-  .content-grid {
-    grid-template-columns: minmax(360px, 480px) 1fr;
-  }
-}
+
 @media (max-width: 560px) {
   main {
     padding: 1.4rem 1rem 2.2rem 1rem;
@@ -86,6 +74,7 @@ main {
 /* ---------- Navegación de ejercicios ---------- */
 .nav-menu {
   display: flex;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 1.2rem;
 }
@@ -162,6 +151,16 @@ main {
 }
 
 /* ---------- Formulario ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 20px;
+}
+@media (min-width: 700px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 .form-field {
   margin-bottom: 1rem;
 }
